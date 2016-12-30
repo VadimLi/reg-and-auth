@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="regAndAuth:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="regAndAuth-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="regAndAuth:war exploded" />
+    </root>
+  </artifact>
+</component>
