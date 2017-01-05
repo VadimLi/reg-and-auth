@@ -1,6 +1,7 @@
 package com.hellokoding.account.service;
 
 import com.hellokoding.account.model.User;
+import com.hellokoding.account.repository.CitiesRepository;
 import com.hellokoding.account.repository.RoleRepository;
 import com.hellokoding.account.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,5 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
 }

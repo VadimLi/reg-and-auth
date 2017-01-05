@@ -11,6 +11,7 @@
         <intercept-url pattern="/src/main/webapp" access="hasRole('ROLE_USER')"/>
         <intercept-url pattern="/main" access="hasRole('ROLE_USER')"/>
         <form-login login-page="/login" default-target-url="/main" authentication-failure-url="/login?error" username-parameter="username" password-parameter="password"/>
+        <form-login login-page="/main" default-target-url="/plane" authentication-failure-url="/city?error" username-parameter="go" password-parameter="back"/>
         <logout logout-success-url="/login?logout" />
     </http>
 

@@ -20,6 +20,9 @@ public class SecurityServiceImpl implements SecurityService {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private CityDetailsServer cityDetailsService;
+
     private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
     @Override
@@ -27,6 +30,16 @@ public class SecurityServiceImpl implements SecurityService {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
         if (userDetails instanceof UserDetails) {
             return ((UserDetails)userDetails).getUsername();
+        }
+
+        return null;
+    }
+
+    @Override
+    public String findCity() {
+        Object cityDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+        if (cityDetails instanceof UserDetails) {
+            return ((UserDetails)cityDetails).getUsername();
         }
 
         return null;
@@ -44,4 +57,5 @@ public class SecurityServiceImpl implements SecurityService {
             logger.debug(String.format("Auto login %s successfully!", username));
         }
     }
+
 }

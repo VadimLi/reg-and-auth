@@ -30,9 +30,21 @@
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
-
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <form method="POST" action="${contextPath}/login" class="form-signin">
+            <h2 class="form-heading">Log in</h2>
 
+            <div class="form-group ${error != null ? 'has-error' : ''}">
+                <span>${message}</span>
+                <input name="go" type="text" class="form-control" placeholder="Go"
+                       autofocus="true"/>
+                <input name="back" type="text" class="form-control" placeholder="Back"/>
+                <span>${error}</span>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+            </div>
+        </form>
     </c:if>
 
     <c:if test="${pageContext.request.userPrincipal.name == null}">

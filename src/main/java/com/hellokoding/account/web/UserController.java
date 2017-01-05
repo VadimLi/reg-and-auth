@@ -62,4 +62,15 @@ public class UserController {
         return "main";
     }
 
+    @RequestMapping(value = {"/plane"}, method = RequestMethod.GET)
+    public String plane(Model model, String errorCityGo, String errorCityBack) {
+        if (errorCityGo != null)
+            model.addAttribute("error", "City not exist");
+
+        if (errorCityBack != null)
+            model.addAttribute("error", "City not exist");
+
+        return "plane";
+    }
+
 }
